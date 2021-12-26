@@ -8,18 +8,31 @@ class DetailTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Chip(
-      backgroundColor: Colors.white,
-      label: Text(
-        "${name[0].toUpperCase()}${name.substring(1)}",
-        style: const TextStyle(
-          fontSize: 24,
-          color: Colors.black,
+    return Hero(
+      tag: "name-$id",
+      child: Material(
+        color: Colors.white,
+        type: MaterialType.transparency,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(21),
+          ),
         ),
-      ),
-      avatar: CircleAvatar(
-        child: Text(
-          id.toString(),
+        child: Chip(
+          backgroundColor: Colors.white,
+          label: Text(
+            "${name[0].toUpperCase()}${name.substring(1)}",
+            overflow: TextOverflow.fade,
+            style: const TextStyle(
+              fontSize: 24,
+              color: Colors.black,
+            ),
+          ),
+          avatar: CircleAvatar(
+            child: Text(
+              id.toString(),
+            ),
+          ),
         ),
       ),
     );

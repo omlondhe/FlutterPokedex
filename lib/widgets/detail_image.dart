@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
 class DetailImage extends StatelessWidget {
+  final int id;
   final String image;
-  const DetailImage({Key? key, required this.image}) : super(key: key);
+
+  const DetailImage({
+    Key? key,
+    required this.image,
+    required this.id,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +28,13 @@ class DetailImage extends StatelessWidget {
                 shape: BoxShape.circle,
               ),
             ),
-            Image.network(
-              image,
-              fit: BoxFit.contain,
-              alignment: Alignment.center,
+            Hero(
+              tag: "image-$id",
+              child: Image.network(
+                image,
+                fit: BoxFit.contain,
+                alignment: Alignment.center,
+              ),
             ),
           ],
         ),

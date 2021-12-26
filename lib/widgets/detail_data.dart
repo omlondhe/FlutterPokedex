@@ -13,19 +13,13 @@ class DetailData extends StatelessWidget {
       ),
       decoration: const BoxDecoration(
         color: Colors.white,
-        border: Border(
-          top: BorderSide(
-            width: 2,
-            color: Colors.grey,
-          ),
-        ),
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(71),
-          topRight: Radius.circular(71),
+          topLeft: Radius.circular(51),
+          topRight: Radius.circular(51),
         ),
       ),
       child: Column(
-        children: [],
+        children: const [Text("To be continued....")],
       ),
     );
   }

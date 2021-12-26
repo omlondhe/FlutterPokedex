@@ -6,6 +6,7 @@ class DetailBackButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton.extended(
+      heroTag: "fab",
       onPressed: () => Navigator.pop(context),
       tooltip: 'Share',
       label: const Text(

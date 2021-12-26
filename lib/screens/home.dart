@@ -40,11 +40,37 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Pokedex"),
+      body: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
+        slivers: [
+          SliverAppBar(
+            pinned: true,
+            stretch: true,
+            expandedHeight: 251,
+            flexibleSpace: FlexibleSpaceBar(
+              background: Hero(
+                tag: "hero",
+                child: Material(
+                  color: Colors.transparent,
+                  child: Center(
+                    child: FlutterLogo(),
+                  ),
+                ),
+              ),
+              collapseMode: CollapseMode.parallax,
+              stretchModes: const [
+                StretchMode.fadeTitle,
+                StretchMode.blurBackground,
+                StretchMode.zoomBackground,
+              ],
+            ),
+          ),
+          const SliverPadding(padding: EdgeInsets.all(4)),
+          PokemonGrid(pokemon: pokemon)
+        ],
       ),
-      body: PokemonGrid(pokemon: pokemon),
       floatingActionButton: FloatingActionButton(
+        heroTag: "fab",
         onPressed: () {},
         tooltip: 'Share',
         child: const Icon(

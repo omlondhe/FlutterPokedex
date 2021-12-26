@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
 class PokemonCardData extends StatelessWidget {
+  final int id;
   final String image;
   final String name;
+
   const PokemonCardData({
     Key? key,
+    required this.id,
     required this.name,
     required this.image,
   }) : super(key: key);
@@ -12,23 +15,41 @@ class PokemonCardData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Expanded(
           child: Padding(
             padding: const EdgeInsets.all(11),
-            child: Image.network(
-              image,
-              fit: BoxFit.contain,
-              alignment: Alignment.bottomRight,
+            child: Hero(
+              tag: "image-$id",
+              child: Image.network(
+                image,
+                fit: BoxFit.contain,
+                alignment: Alignment.bottomRight,
+              ),
             ),
           ),
         ),
         const Divider(),
-        Text(
-          "${name[0].toUpperCase()}${name.substring(1)}",
-          style: const TextStyle(
-            fontSize: 21,
-            color: Colors.black87,
+        Hero(
+          tag: "name-$id",
+          child: Material(
+            color: Colors.white,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(21),
+              ),
+            ),
+            child: Center(
+              child: Text(
+                "${name[0].toUpperCase()}${name.substring(1)}",
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 21,
+                  color: Colors.black87,
+                ),
+              ),
+            ),
           ),
         ),
       ],

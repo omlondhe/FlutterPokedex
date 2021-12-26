@@ -22,14 +22,11 @@ class _PokemonGridState extends State<PokemonGrid> {
                 ? 3
                 : 2;
 
-    return GridView.count(
-      padding: const EdgeInsets.all(7),
+    return SliverGrid.count(
       crossAxisCount: crossAxisCount,
       crossAxisSpacing: 4,
       mainAxisSpacing: 4,
-      semanticChildCount: 250,
       childAspectRatio: 200 / 244,
-      physics: const BouncingScrollPhysics(),
       children: widget.pokemon
           .map(
             (pokemon) => PokemonCard(
