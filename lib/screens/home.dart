@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:pokedex/api/pokeapi.dart';
 import 'package:pokedex/models/poke_model.dart';
-import 'package:pokedex/widgets/pokemon_card.dart';
+import 'package:pokedex/widgets/home_app_bar.dart';
 import 'package:pokedex/widgets/pokemon_grid.dart';
 
 class Home extends StatefulWidget {
@@ -40,31 +40,11 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [
-          SliverAppBar(
-            pinned: true,
-            stretch: true,
-            expandedHeight: 251,
-            flexibleSpace: FlexibleSpaceBar(
-              background: Hero(
-                tag: "hero",
-                child: Material(
-                  color: Colors.transparent,
-                  child: Center(
-                    child: FlutterLogo(),
-                  ),
-                ),
-              ),
-              collapseMode: CollapseMode.parallax,
-              stretchModes: const [
-                StretchMode.fadeTitle,
-                StretchMode.blurBackground,
-                StretchMode.zoomBackground,
-              ],
-            ),
-          ),
+          const HomeAppBar(),
           const SliverPadding(padding: EdgeInsets.all(4)),
           PokemonGrid(pokemon: pokemon)
         ],
