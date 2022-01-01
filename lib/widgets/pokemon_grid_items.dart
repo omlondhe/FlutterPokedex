@@ -13,22 +13,11 @@ Widget pokemonGridItem(
         begin: 0,
         end: 1,
       ).animate(animation),
-      child: SlideTransition(
-        position: Tween<Offset>(
-          begin: const Offset(0, 0.1),
-          end: Offset.zero,
-        ).animate(
-          CurvedAnimation(
-            parent: animation,
-            curve: Curves.easeInOut,
-          ),
-        ),
-        child: pokemon.isEmpty
-            ? const Center(child: CircularProgressIndicator())
-            : PokemonCard(
-                id: pokemon.elementAt(index).id,
-                name: pokemon.elementAt(index).name,
-                image: pokemon.elementAt(index).img,
-              ),
-      ),
+      child: pokemon.isEmpty
+          ? const Center(child: CircularProgressIndicator())
+          : PokemonCard(
+              id: pokemon.elementAt(index).id,
+              name: pokemon.elementAt(index).name,
+              image: pokemon.elementAt(index).img,
+            ),
     );

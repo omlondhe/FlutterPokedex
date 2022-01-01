@@ -33,8 +33,8 @@ class _PokemonGridState extends State<PokemonGrid> {
         mainAxisSpacing: 4,
         childAspectRatio: 200 / 244,
       ),
-      showItemInterval: const Duration(milliseconds: 150),
-      showItemDuration: const Duration(milliseconds: 750),
+      showItemInterval: const Duration(milliseconds: 50),
+      showItemDuration: const Duration(milliseconds: 1000),
       visibleFraction: 0.001,
       itemBuilder: (context, index, animation) {
         return pokemonGridItem(context, index, animation, widget.pokemon);
